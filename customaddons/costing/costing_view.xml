@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="costing_view" model="ir.ui.view">
-        <field name="name">product.product_template_only_form_view_cost</field>
-        <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_only_form_view"/>
-        <field name="arch" type="xml">
-        <field name ="property_cost_method"/>
-        <field name="standard_price" attrs="{'invisible':[('property_cost_method','=','lotcost)]}"/>
-        </field>
-    </record>
+        <record id="product_template_lotcost_view" model="ir.ui.view">
+            <field name="name">product.template.lotcost.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_variant_id']" position="after">
+                    <field name="cost_method" invisible="1"/>
+                </xpath>
+                <xpath expr="//label[@for='standard_price']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['&amp;','|',('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False), ('cost_method' ,'=', 'lotcost')]}
+                    </attribute>
+                </xpath>
+                <xpath expr="//div[@name='standard_price_uom']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['&amp;','|',('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False), ('cost_method' ,'=', 'lotcost')]}
+                    </attribute>
+                </xpath>
+            </field>
+        </record>
 </odoo>

@@ -9,3 +9,5 @@ class ProductCategoryCost(models.Model):
         selection_add=[('lotcost', 'Lot Cost')], ondelete={'lotcost': 'cascade'}
     )
 
+
+
