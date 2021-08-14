@@ -755,12 +755,6 @@ class ProductCategory(models.Model):
         if not self._origin:
             # don't display the warning when creating a product category
             return
-        return {
-            'warning': {
-                'title': _("Warning"),
-                'message': _("Changing your cost method is an important change that will impact your inventory valuation. Are you sure you want to make that change?"),
-            }
-        }
 
     def write(self, vals):
         impacted_categories = {}
