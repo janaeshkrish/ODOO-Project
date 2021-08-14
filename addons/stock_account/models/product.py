@@ -711,7 +711,7 @@ class ProductCategory(models.Model):
         Automated: An accounting entry is automatically created to value the inventory when a product enters or leaves the company.
         """)
 
-    #cost method is added for Cost per Lot/Serial Number
+    ###### cost method is added for Cost per Lot/Serial Number ####
     property_cost_method = fields.Selection([
         ('standard', 'Standard Price'),
         ('fifo', 'First In First Out (FIFO)'),
@@ -755,6 +755,12 @@ class ProductCategory(models.Model):
         if not self._origin:
             # don't display the warning when creating a product category
             return
+        return {
+            'warning': {
+                'title': _("Warning"),
+                'message': _("Changing your cost method is an important change that will impact your inventory valuation. Are you sure you want to make that change?"),
+            }
+        }
 
     def write(self, vals):
         impacted_categories = {}
