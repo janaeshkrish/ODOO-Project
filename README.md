@@ -3,7 +3,7 @@
 [![Help](http://img.shields.io/badge/master-help-875A7B.svg?style=flat&colorA=8F8F8F)](https://www.odoo.com/forum/help-1)
 [![Nightly Builds](http://img.shields.io/badge/master-nightly-875A7B.svg?style=flat&colorA=8F8F8F)](http://nightly.odoo.com/)
 
-Odoo
+Odoo14
 ----
 
 Odoo is a suite of web based open source business apps.
@@ -24,10 +24,17 @@ Odoo Apps can be used as stand-alone applications, but they also integrate seaml
 a full-featured <a href="https://www.odoo.com">Open Source ERP</a> when you install several Apps.
 
 
-Getting started with Odoo
+Project Overview
+-----------------
+
+For product price calculation and identifying purposes, the customer needs to be able to track costs of each serial number and lot.
+
+
+Steps to start the project
 -------------------------
-
-For a standard installation please follow the <a href="https://www.odoo.com/documentation/14.0/administration/install.html">Setup instructions</a>
-from the documentation.
-
-To learn the software, we recommend the <a href="https://www.odoo.com/slides">Odoo eLearning</a>, or <a href="https://www.odoo.com/page/scale-up-business-game">Scale-up</a>, the <a href="https://www.odoo.com/page/scale-up-business-game">business game</a>. Developers can start with <a href="https://www.odoo.com/documentation/14.0/developer/howtos.html">the developer tutorials</a>
+1. Clone the repository
+2. pip install -r requirements.txt
+3. Create a Database in postgres sql 
+4. Create login/group role ie superuser
+5. python odoo-bin -r username -w password -d database --addons-path=path to custom adddons
+6. Search for the module costing then install and update.
