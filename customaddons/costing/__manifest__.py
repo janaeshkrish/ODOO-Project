@@ -6,7 +6,7 @@
     'version': '1.0',
     'depends': ['stock_account','product','stock'],
     'data':[
-        'costing_view.xml','lot_list_view.xml','lot_detail_view.xml'
+        'costing_view.xml','lotcost_list_detail_view.xml','stock_inventory_lotcost_view.xml'
         ],
     'installable': True,
     'auto_install': True,

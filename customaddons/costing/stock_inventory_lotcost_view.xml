@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<odoo>
+
+        <record id="stock_inventory_lotcost_tree" model="ir.ui.view">
+            <field name="name">stock.inventory.lotcost.tree</field>
+            <field name="model">stock.inventory.line</field>
+            <field name="inherit_id" ref="stock.stock_inventory_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='prod_lot_id']" position="after">
+                    <field name="cost_method" invisible="1"/>
+                    <field name="cost_per_lot" attrs="{'invisible': [('cost_method','!=','lotcost')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="stock_quant_lotcost_tree" model="ir.ui.view">
+            <field name="name">stock.quant.lotcost.tree</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.view_stock_quant_tree_editable"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lot_id']" position="after">
+                    <field name="cost_method" invisible="1"/>
+                    <field name="cost_per_lot" attrs="{'invisible': [('cost_method','!=','lotcost')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="stock_move_lotcost_line" model="ir.ui.view">
+            <field name="name">stock.move.lotcost.line</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_stock_move_line_detailed_operation_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lot_id']" position="after">
+                    <field name="cost_method" invisible="1"/>
+                    <field name="picking_code" invisible="1"/>
+                    <field name="cost_per_lot" attrs="{'invisible': ['|',('cost_method','!=','lotcost'),('picking_code','!=','incoming')]}"/>
+                </xpath>
+            </field>
+        </record>
+</odoo>
