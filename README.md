@@ -1,13 +1,14 @@
-Odoo Project
+What is Odoo
 ------------
-
-This software is developed using odoo version 14
+Odoo ERP system is enterprise resource planning software used company-wide for the management of business processes. Odoo provides seamlessly integrated functional business apps called Odoo apps that form an ERP solution when combined
 
 Project Overview
 -----------------
-
 For product price calculation and identifying purposes, the customer needs to be able to track costs of each serial number and lot.
 
+RunTime
+------------
+odoo version 14
 
 Steps to start the project
 -------------------------
